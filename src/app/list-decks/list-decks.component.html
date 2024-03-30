@@ -1,0 +1,28 @@
+
+
+<div class="container">
+  <div style="display: flex; justify-content: center; margin: 30px;">
+    <img src="../../assets/img/undraw_online_learning_re_qw08.svg" width="500px" alt="Graduation Image">
+  </div>
+  <div class="row" *ngIf="decks.length > 0">
+    <div class="col">
+      <h2>List Decks</h2>
+      <hr>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let deck of decks" (click)="onSelectDeck(deck)">
+          <h3>{{ deck.name }}</h3>
+          <p>{{ deck.description }}</p>
+          <a class="btn btn-primary" (click)="viewDeck(deck.deckId)">View Deck</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!decks || decks.length === 0">
+    <div class="col">
+      <p>No decks found.</p>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

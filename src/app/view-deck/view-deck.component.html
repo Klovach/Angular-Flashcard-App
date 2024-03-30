@@ -1,0 +1,39 @@
+<div class="container">
+  <div style="display: flex; justify-content: center; margin: 30px;">
+  <img src="../../assets/img/undraw_graduation_re_gthn.svg" alt="Graduation Image">
+  </div>
+  <div class="row" *ngIf="selectedDeck">
+    <h1>Deck View</h1>
+    <div class="col">
+      <hr>
+      <h3>{{ selectedDeck.name }}</h3>
+      <p>{{ selectedDeck.description }}</p>
+      <div class="btn-group">
+        <a class="btn btn-primary" (click)="editDeck(selectedDeck.deckId)">Edit Deck</a>
+        <a class="btn btn-secondary" (click)="deleteDeck(selectedDeck.deckId)">Delete Deck</a>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row mt-4" *ngIf="selectedDeck && selectedDeck.cards && selectedDeck.cards.length > 0">
+    <div class="col">
+      <h3>{{ selectedDeck.name }}'s Cards</h3>
+      <div *ngFor="let card of selectedDeck.cards">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h4 class="card-title">{{ card.question }}</h4>
+            <p class="card-text">{{ card.answer }}</p>
+            <div class="btn-group">
+              <a class="btn btn-primary" (click)="editCard(card.cardId)">Edit Card</a>
+              <a class="btn btn-secondary" (click)="deleteCard(card.cardId)">Delete Card</a>
+            </div>        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 

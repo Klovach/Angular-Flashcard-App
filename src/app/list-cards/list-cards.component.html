@@ -1,0 +1,20 @@
+
+<p>Loaded list card</p>
+
+<div *ngFor="let card of cards">
+    <p>Loaded list card</p>
+  </div>
+  
+<div *ngIf="cards.length > 0">
+    <button class="list-group-item" active *ngFor="let card of cards" (click)="onSelectCard(card)">
+    <table align="center">
+        <tr>
+            <td width="20%"><img src="{{ card.image }}" width="50px" height="50px"></td>
+            <td>{{ card.question }}</td>
+            <td>{{ card.answer }}</td>
+        </tr>
+    </table>
+    </button>
+</div>
+
+<app-view-card *ngIf="selectedCard" [card]="selectedCard"></app-view-card>

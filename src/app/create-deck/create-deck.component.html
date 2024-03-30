@@ -1,0 +1,35 @@
+<div align="center" style="margin-left:25%; margin-right:25%; line-height:25px;" *ngIf="!wasSubmitted">
+    <br><br><br>
+    <div>
+    <img src="../../assets/img/undraw_graduation_re_gthn.svg" alt="Graduation Image">
+</div>
+    <br><br><br>
+    <h1>Create Deck</h1>
+    <hr>
+        <form (ngSubmit)="onSubmit()" #createForm="ngForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" class="form-control" aria-describedby="helpName" placeholder="Enter the name of the Deck" required [(ngModel)]="deck.name" name="name">
+                </div>
+                <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" rows="3" class="form-control" aria-describedby="helpDescription" placeholder="Enter the description of the Deck" required [(ngModel)]="deck.description" name="description"></textarea>
+                 </div>
+                <div class="form-group">
+                        <label for="image">Image Filename</label>
+                        <input id="image" type="text" class="form-control" aria-describedby="helpImage" placeholder="Enter the image filename for the Deck" [(ngModel)]="deck.image" name="image">
+                </div>
+                <div class="form-group">
+                        <label for="cards">Cards</label>
+                        <textarea id="cards" rows="3" class="form-control" aria-describedby="helpCards" placeholder="Enter each card followed by a return key for the Deck" required [(ngModel)]="cardsRaw" name="cards"></textarea>
+                 </div>
+        
+                 <br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        
+        </div>
+        <div  *ngIf="wasSubmitted">
+            Deck was added successfully.
+        </div>
+        <br><br><br>

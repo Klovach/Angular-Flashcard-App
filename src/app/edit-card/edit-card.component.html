@@ -1,0 +1,21 @@
+<div align="center" style="margin-left:25%; margin-right:25%; line-height:25px;" *ngIf="selectedCard">
+    <h2>Edit Card</h2>
+    <hr>
+    <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <div class="form-group">
+            <label for="question">Question</label>
+            <input id="question" type="text" class="form-control" aria-describedby="helpQuestion" placeholder="Enter the question" required [(ngModel)]="selectedCard.question" name="question">
+        </div>
+        <div class="form-group">
+            <label for="answer">Answer</label>
+            <textarea id="answer" rows="3" class="form-control" aria-describedby="helpAnswer" placeholder="Enter the answer" required [(ngModel)]="selectedCard.answer" name="answer"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image Filename</label>
+            <input id="image" type="text" class="form-control" aria-describedby="helpImage" placeholder="Enter the image filename" [(ngModel)]="selectedCard.image" name="image">
+        </div>
+
+        <br />
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
